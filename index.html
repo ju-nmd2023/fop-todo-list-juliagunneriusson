@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="main.css" />
+    <script src="todolist.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,15 +18,20 @@
     <header>
       <p id="logo">KEEP TRACK OF YOUR WORK</p>
     </header>
+
     <main>
-      <form id="contactform">
-        <div class="input_container">
-          <label for="Write">Write your thoughts down below👇</label>
-          <input type="text" id="Write" Write="Write" required />
-      
-        <button>Submit</button>
-      </form>
-    </main>
+        <ul id="taskList"></ul>
+        <form id="contactform">
+          <div class="input_container">
+            <label for="taskInput">Add a new task:</label>
+            <input type="text" id="taskInput" required />
+            <button type="button" onclick="addTask()">Add Task</button>
+          </div>
+        </form>
+      </main>
+
   </body>
   <footer></footer>
 </html>
+
+
