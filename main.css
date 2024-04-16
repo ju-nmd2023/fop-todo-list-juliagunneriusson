@@ -1,0 +1,128 @@
+* {
+    font-family: "DM Serif Display", serif;
+  }
+  
+  /* HAEDER */
+  header {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+   
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  #logo {
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: 1px dashed rgb(145, 17, 66);
+    display: block;
+    padding: 5px;
+    text-align: center;
+    margin: 0 auto;
+
+
+  }
+
+  
+  /* BODY */
+
+body{
+    background-color: rgb(249, 216, 222);
+}
+  
+  @keyframes shake {
+    25% {
+      transform: scale(1.2);
+    }
+    40% {
+      transform: rotate(-20deg);
+      scale: (1 2);
+    }
+    50% {
+      transform: rotate(-20deg);
+      scale: (1 2);
+    }
+    60% {
+      transform: rotate(-20deg);
+      scale: (1 2);
+    }
+    70% {
+      transform: rotate(-20deg);
+      scale: (1 2);
+    }
+    80% {
+      transform: rotate(-20deg);
+      scale: (1 2);
+    }
+    90% {
+      transform: rotate(-20deg);
+      scale: (1 2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+
+  
+
+
+  
+  /*CONTAINER SECTION*/
+  form {
+    margin-left: 20rem;
+    margin-right: 20rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+    margin-bottom: 20%;
+  }
+  
+  .input_container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+  .input_container label {
+    font-size: 1rem;
+  }
+  
+  .input_container input,
+  textarea {
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid bla;
+    resize: none;
+    
+  }
+
+  .input_container label {
+    text-align: center;
+  }
+
+
+
+  button {
+    align-self: flex-start;
+    padding: 1rem 2rem;
+   
+    border: color(srgb red green blue);
+    color: FFF;
+    cursor: pointer;
+    background-color: rgb(204, 69, 148);
+    width: 120px;
+    height: 50px;
+    margin-left: 50px;
+    border-radius: 20%;
+    animation-name: shake;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    margin: 0 auto;
+    text-align: center;
+
+  }
+  
