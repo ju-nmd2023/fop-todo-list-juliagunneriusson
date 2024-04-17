@@ -3,35 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>To do list</title>
     <link rel="stylesheet" href="main.css" />
-    <script src="todolist.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
+    <script src="main.js" defer></script>
   </head>
   <body>
-    <h1>TODO-LIST</h1>
     <header>
-      <p id="logo">KEEP TRACK OF YOUR WORK</p>
+      <h1>To-do List</h1>
     </header>
-
-    <main>
-        <form id="contactform">
-          <div class="input_container">
-            <label for="taskInput">Add a new task:</label>
-            <input type="text" id="taskInput" required />
-            <button type="button" onclick="addTask()">Add Task</button>
-            <ul id="taskList"></ul>
-          </div>
-        </form>
-      </main>
-
+    <h2>Write down your tasks below!</h2>
+    <section id="biglist-style">
+      <div class="input-field">
+        <input id="next" placeholder="Enter task..." />
+        <button id="save">Save Task</button>
+      </div>
+      <div class="listcontainer">    
+        <ul id="listitems"></ul>     
+      </div>
+    </section>
   </body>
-  <footer></footer>
 </html>
+
 
 
