@@ -68,13 +68,13 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh; 
+  height: 60vh;
 }
 
 #taskList {
   list-style: none;
-  padding: 10px;
-  margin-bottom: 10px; 
+  padding: 30px;
+  margin-bottom: 10px;
 }
 
 .input_container {
@@ -89,8 +89,8 @@ form {
   margin-right: 20rem;
   display: flex;
   flex-direction: column;
-  row-gap: 3rem;
-  margin-bottom: 20%;
+  row-gap: 0rem;
+  margin-bottom: 10%;
 }
 
 .input_container {
@@ -117,13 +117,12 @@ textarea {
 button {
   align-self: flex-start;
   padding: 1rem 2rem;
-
   border: color(srgb red green blue);
   color: FFF;
   cursor: pointer;
   background-color: rgb(204, 69, 148);
-  width: 120px;
-  height: 50px;
+  width: 130px;
+  height: 60px;
   margin-left: 50px;
   border-radius: 20%;
   animation-name: shake;
@@ -132,3 +131,5 @@ button {
   margin: 0 auto;
   text-align: center;
 }
+
+
