@@ -12,9 +12,7 @@ function addTask() {
     // Create checkbox
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.addEventListener("change", toggleTaskCompletion); // Add event listener to toggle task completion
     li.appendChild(checkbox);
-    
 
     // Include delete emoji within the list item
     let deleteEmoji = document.createTextNode("❎");
@@ -31,24 +29,19 @@ function addTask() {
   }
 }
 
-
-
 function toggleTaskCompletion(event) {
-    let checkbox = event.target;
-    let li = checkbox.parentNode;
-  
-    if (checkbox.checked) {
-        li.classList.add("completed");
-        checkbox.checked = true; // 
-    } else {
-        li.classList.remove("completed");
-        checkbox.checked = false; // Manually set the checkbox state to unchecked
-    }
+  let checkbox = event.target;
+  let li = checkbox.parentNode;
+
+  if (checkbox.checked) {
+    li.classList.add("completed");
+  } else {
+    li.classList.remove("completed");
+  }
+  checkbox.checked = li.classList.contains("completed");
 }
 
 // Function to delete task
 function deleteTask() {
   this.parentNode.removeChild(this);
 }
-
-

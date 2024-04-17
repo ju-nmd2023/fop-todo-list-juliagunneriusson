@@ -133,3 +133,7 @@ button {
 }
 
 
+.completed {
+    text-decoration: line-through; /* Add a line-through effect to the text */
+    color: #d00c0c; /* Change the color of the text to gray */
+  }
