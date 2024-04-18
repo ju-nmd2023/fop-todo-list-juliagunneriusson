@@ -6,7 +6,7 @@ function saveTask() {
 
   let listitems = {
     name: nameElement.value,
-    completed: false, // Initially set the task as not completed
+    completed: false, 
   };
 
   if (localStorage.listitems === undefined) {
@@ -50,9 +50,9 @@ function displayListitems() {
 
       // Checkbox event listener to mark task as done
       checkbox.addEventListener("change", () => {
-        items.completed = checkbox.checked; // Update the completed state in the listitemsArray
-        localStorage.setItem("listitems", JSON.stringify(listitemsArray)); // Save to local storage here
-        updateTaskStyle(item, checkbox.checked); // Update task style based on checkbox state
+        items.completed = checkbox.checked; 
+        localStorage.setItem("listitems", JSON.stringify(listitemsArray)); 
+        updateTaskStyle(item, checkbox.checked); 
       });
 
       //remove button
