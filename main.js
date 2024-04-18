@@ -1,74 +1,87 @@
+
+
+
 function saveTask() {
-    const nameElement = document.getElementById("next");
-  
-    let listitems = {
-      name: nameElement.value,
-    };
-  
-    if (localStorage.listitems === undefined) {
-      localStorage.listitems = JSON.stringify([]);
-    }
+  const nameElement = document.getElementById("next");
+
+  let listitems = {
+    name: nameElement.value,
+    completed: false, // Initially set the task as not completed
+  };
+
+  if (localStorage.listitems === undefined) {
+    localStorage.listitems = JSON.stringify([]);
+  }
+  let listitemsArray = JSON.parse(localStorage.listitems);
+  listitemsArray.push(listitems);
+  localStorage.setItem("listitems", JSON.stringify(listitemsArray));
+
+  nameElement.value = "";
+
+  displayListitems();
+}
+
+function displayListitems() {
+  if (localStorage.listitems !== undefined) {
     let listitemsArray = JSON.parse(localStorage.listitems);
-    listitemsArray.push(listitems);
-    localStorage.listitems = JSON.stringify(listitemsArray);
-  
-    nameElement.value = "";
-  
-    displayListitems();
-  }
-  
-  function displayListitems() {
-    if (localStorage.listitems !== undefined) {
-      let listitemsArray = JSON.parse(localStorage.listitems);
-      listitemsArray.sort(function (a, b) {
-        return b.items - a.items;
-      });
-  
-      const listitemsElement = document.getElementById("listitems");
-      listitemsElement.innerText = "";
-      for (let items of listitemsArray) {
-        const item = document.createElement("li");
-        item.innerText = items.name;
-        listitemsElement.appendChild(item);
-  
-        // Create checkbox
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        item.appendChild(checkbox);
-  
-        //remove button
-        const button = document.createElement("button");
-        button.innerText = "Delete";
-        item.appendChild(button);
-        button.addEventListener("click", () => {
-          listitemsArray.splice(listitemsArray.indexOf(items), 1);
-          localStorage.setItem("listitems", JSON.stringify(listitemsArray));
-  
-          displayListitems();
-        });
+    listitemsArray.sort(function (a, b) {
+      return b.items - a.items;
+    });
+
+    const listitemsElement = document.getElementById("listitems");
+    listitemsElement.innerText = "";
+    for (let i = 0; i < listitemsArray.length; i++) {
+      const items = listitemsArray[i];
+      const item = document.createElement("li");
+      item.innerText = items.name;
+      
+      // Apply line-through style if task is completed
+      if (items.completed) {
+        item.style.textDecoration = "line-through";
       }
-  
+
+      listitemsElement.appendChild(item);
+
+      // Create checkbox
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = items.completed;
+      item.appendChild(checkbox);
+
       // Checkbox event listener to mark task as done
-      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      checkboxes.forEach((checkbox, index) => {
-        const taskName = listitemsElement.children[index].querySelector("span");
-        checkbox.addEventListener("change", () => {
-          if (checkbox.checked) {
-            taskName.style.textDecoration = "line-through";
-          } else {
-            taskName.style.textDecoration = "none";
-          }
-        });
+      checkbox.addEventListener("change", () => {
+        items.completed = checkbox.checked; // Update the completed state in the listitemsArray
+        localStorage.setItem("listitems", JSON.stringify(listitemsArray)); // Save to local storage here
+        updateTaskStyle(item, checkbox.checked); // Update task style based on checkbox state
+      });
+
+      //remove button
+      const button = document.createElement("button");
+      button.innerText = "Delete";
+      item.appendChild(button);
+      button.addEventListener("click", () => {
+        listitemsArray.splice(i, 1);
+        localStorage.setItem("listitems", JSON.stringify(listitemsArray));
+        displayListitems();
       });
     }
   }
-  
-  function loadHandler() {
-    const saveButton = document.getElementById("save");
-    saveButton.addEventListener("click", function () {
-      saveTask();
-    });
+}
+
+function updateTaskStyle(taskElement, isChecked) {
+  if (isChecked) {
+    taskElement.style.textDecoration = "line-through";
+  } else {
+    taskElement.style.textDecoration = "none";
   }
-  window.addEventListener("load", loadHandler);
-  window.addEventListener("load", displayListitems);
-  
+}
+
+function loadHandler() {
+  const saveButton = document.getElementById("save");
+  saveButton.addEventListener("click", function () {
+    saveTask();
+  });
+}
+
+window.addEventListener("load", loadHandler);
+window.addEventListener("load", displayListitems);
