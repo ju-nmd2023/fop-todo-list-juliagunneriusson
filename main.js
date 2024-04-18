@@ -1,12 +1,9 @@
-
-
-
 function saveTask() {
   const nameElement = document.getElementById("next");
 
   let listitems = {
     name: nameElement.value,
-    completed: false, 
+    completed: false,
   };
 
   if (localStorage.listitems === undefined) {
@@ -34,7 +31,7 @@ function displayListitems() {
       const items = listitemsArray[i];
       const item = document.createElement("li");
       item.innerText = items.name;
-      
+
       // Apply line-through style if task is completed
       if (items.completed) {
         item.style.textDecoration = "line-through";
@@ -50,9 +47,9 @@ function displayListitems() {
 
       // Checkbox event listener to mark task as done
       checkbox.addEventListener("change", () => {
-        items.completed = checkbox.checked; 
-        localStorage.setItem("listitems", JSON.stringify(listitemsArray)); 
-        updateTaskStyle(item, checkbox.checked); 
+        items.completed = checkbox.checked;
+        localStorage.setItem("listitems", JSON.stringify(listitemsArray));
+        updateTaskStyle(item, checkbox.checked);
       });
 
       //remove button
@@ -85,8 +82,3 @@ function loadHandler() {
 
 window.addEventListener("load", loadHandler);
 window.addEventListener("load", displayListitems);
-
-document.addEventListener("DOMContentLoaded", function() {
-  loadHandler();
-  displayListitems();
-});
