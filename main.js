@@ -85,3 +85,8 @@ function loadHandler() {
 
 window.addEventListener("load", loadHandler);
 window.addEventListener("load", displayListitems);
+
+document.addEventListener("DOMContentLoaded", function() {
+  loadHandler();
+  displayListitems();
+});
