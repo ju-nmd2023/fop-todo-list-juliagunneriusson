@@ -68,13 +68,6 @@ function displayListitems() {
   }
 }
 
-function updateTaskStyle(taskElement, isChecked) {
-  if (isChecked) {
-    taskElement.style.textDecoration = "line-through";
-  } else {
-    taskElement.style.textDecoration = "none";
-  }
-}
 
 function loadHandler() {
   const saveButton = document.getElementById("save");
