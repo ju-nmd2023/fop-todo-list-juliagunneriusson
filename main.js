@@ -32,7 +32,7 @@ function displayListitems() {
       const item = document.createElement("li");
       item.innerText = items.name;
 
-      // Apply line-through style if task is completed
+      // Apply line-through style if task is completed, inspired by chatgpt
       if (items.completed) {
         item.style.textDecoration = "line-through";
       }
@@ -45,7 +45,7 @@ function displayListitems() {
       checkbox.checked = items.completed;
       item.appendChild(checkbox);
 
-      // Checkbox event listener to mark task as done
+      // Checkbox event listener to mark task as done, inspired by chatgpt
       checkbox.addEventListener("change", () => {
         items.completed = checkbox.checked;
         localStorage.setItem("listitems", JSON.stringify(listitemsArray));
@@ -65,6 +65,7 @@ function displayListitems() {
   }
 }
 
+//inspired by chatgpt
 function updateTaskStyle(taskElement, isChecked) {
   if (isChecked) {
     taskElement.style.textDecoration = "line-through";
